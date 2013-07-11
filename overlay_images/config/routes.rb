@@ -1,4 +1,9 @@
 OverlayImages::Application.routes.draw do
+  root to: "overlays#index"     # account selection page
+  
+  resources :overlays
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  image: 
+  date_from: 
+  date_to: 
+  position: MyString
+
+two:
+  image: 
+  date_from: 
+  date_to: 
+  position: MyString
