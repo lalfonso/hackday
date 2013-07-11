@@ -1,4 +1,5 @@
 = form_for @overlay, :html => { multipart: true, class: 'form-horizontal' } do |f|
+  = render "shared/error_messages", :target => @overlay
   .control-group
     = f.label :image, :class => 'control-label'
     .controls
@@ -6,15 +7,15 @@
       .input-append
         %input#imagePath.input-large{type: "text", disabled: true}
         %a.btn{:onclick => "$('#overlay_image').click();"} Browse
-      = f.text_field :remote_image_url
+      = # f.text_field :remote_image_url
   .control-group
     = f.label :date_from, :class => 'control-label'
     .controls
-      = f.text_field :date_from, "data-behaviour" => 'datepicker'
+      = f.text_field :date_from, value: (l(f.object.date_from.to_date) rescue nil), "data-behaviour" => 'datepicker'
   .control-group
     = f.label :date_to, :class => 'control-label'
     .controls
-      = f.text_field :date_to, "data-behaviour" => 'datepicker'
+      = f.text_field :date_to, value: (l(f.object.date_to.to_date) rescue nil), "data-behaviour" => 'datepicker'
   .control-group
     = f.label :position, :class => 'control-label'
     .controls
