@@ -34,7 +34,7 @@
 
 :javascript
   $('#overlay_image').change(function() {
-    console.log($(this));
-    $('#imagePath').val( $(this).val() );
+    path = $(this).val().replace("C:\\fakepath\\", "")
+    $('#imagePath').val( path );
   });
   $('[data-behaviour~=datepicker]').datepicker({ format: "yyyy-mm-dd" });
