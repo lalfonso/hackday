@@ -45,7 +45,7 @@ class OverlaysController < ApplicationController
 
     respond_to do |format|
       if @overlay.save
-        format.html { redirect_to @overlay, notice: 'Overlay was successfully created.' }
+        format.html { redirect_to overlays_path, notice: 'Overlay was successfully created.' }
         format.json { render json: @overlay, status: :created, location: @overlay }
       else
         format.html { render action: "new" }
@@ -61,7 +61,7 @@ class OverlaysController < ApplicationController
 
     respond_to do |format|
       if @overlay.update_attributes(params[:overlay])
-        format.html { redirect_to @overlay, notice: 'Overlay was successfully updated.' }
+        format.html { redirect_to overlays_path, notice: 'Overlay was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
