@@ -11,10 +11,9 @@ class Overlay < ActiveRecord::Base
 
   def check_dates
   if !date_to.nil? && !date_from.nil?     
-    errors.add(:date_from, "Dates are wrong") if date_from > date_to 
+    errors.add(:date_from, "can't be later than 'Date to'") if date_from > date_to 
   end
-
-
+  
   end
 
   def self.current
