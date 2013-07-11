@@ -3,3 +3,7 @@
 
 en:
   hello: "Hello world"
+  lt: Top left
+  lb: Bottom Left
+  rt: Top Right
+  rb: Bottom Right

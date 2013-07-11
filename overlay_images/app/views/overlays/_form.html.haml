@@ -5,17 +5,25 @@
     .controls
       = f.file_field :image, accept: 'image/png,image/gif,image/jpeg', style: "display:none"
       .input-append
-        %input#imagePath.input-large{type: "text", disabled: true}
-        %a.btn{:onclick => "$('#overlay_image').click();"} Browse
+        %input#imagePath{type: "text", disabled: true}
+        %a.btn{:onclick => "$('#overlay_image').click();"}
+          %i.icon-file
+            Browse
       = # f.text_field :remote_image_url
   .control-group
     = f.label :date_from, :class => 'control-label'
     .controls
-      = f.text_field :date_from, value: (l(f.object.date_from.to_date) rescue nil), "data-behaviour" => 'datepicker'
+      .input-prepend
+        %span.add-on
+          %i.icon-calendar
+        = f.text_field :date_from, value: (l(f.object.date_from.to_date) rescue nil), "data-behaviour" => 'datepicker'
   .control-group
     = f.label :date_to, :class => 'control-label'
     .controls
-      = f.text_field :date_to, value: (l(f.object.date_to.to_date) rescue nil), "data-behaviour" => 'datepicker'
+      .input-prepend
+        %span.add-on
+          %i.icon-calendar
+        = f.text_field :date_to, value: (l(f.object.date_to.to_date) rescue nil), "data-behaviour" => 'datepicker'
   .control-group
     = f.label :position, :class => 'control-label'
     .controls

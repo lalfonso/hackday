@@ -1,22 +1,18 @@
 - model_class = Overlay
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.titleize
-
 %p
   %strong= model_class.human_attribute_name(:image) + ':'
   %br
-  = image_tag @overlay.image_url(:thumb).to_s
+  = image_tag @overlay.image_url(:thumb).to_s, class: "img-polaroid"
 %p
   %strong= model_class.human_attribute_name(:date_from) + ':'
-  %br
-  = @overlay.date_from
+  = l @overlay.date_from.to_date
 %p
   %strong= model_class.human_attribute_name(:date_to) + ':'
-  %br
-  = @overlay.date_to
+  = l @overlay.date_to.to_date
 %p
   %strong= model_class.human_attribute_name(:position) + ':'
-  %br
   = @overlay.position
 
 .form-actions
