@@ -1,16 +1,19 @@
-= form_for @overlay, :html => { :class => 'form-horizontal' } do |f|
+= form_for @overlay, multipart: true, :html => { :class => 'form-horizontal' } do |f|
   .control-group
     = f.label :image, :class => 'control-label'
     .controls
-      = f.text_field :image, :class => 'text_field'
+      = f.file_field :image, accept: 'image/png,image/gif,image/jpeg', style: "display:none"
+      .input-append
+        %input#imagePath.input-large{type: "text", disabled: true}
+        %a.btn{:onclick => "$('#overlay_image').click();"} Browse
   .control-group
     = f.label :date_from, :class => 'control-label'
     .controls
-      = f.datetime_select :date_from, :class => 'datetime_select'
+      = f.text_field :date_from, "data-behaviour" => 'datepicker'
   .control-group
     = f.label :date_to, :class => 'control-label'
     .controls
-      = f.datetime_select :date_to, :class => 'datetime_select'
+      = f.text_field :date_to, :class => 'datetime_select'
   .control-group
     = f.label :position, :class => 'control-label'
     .controls
@@ -18,3 +21,9 @@
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), overlays_path, :class => 'btn'
+
+:javascript
+  $('#overlay_image').change(function() {
+    $('#imagePath').val( $(this).val() );
+  });
+  $('[data-behaviour~=datepicker]').datepicker();
