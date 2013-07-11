@@ -11,7 +11,7 @@ class Overlay < ActiveRecord::Base
 
   def check_dates
     if date_from > date_to || date_from == date_to 
-      errors.add(:date_from, t("overlay.wrong_dates")) 
+      errors.add(:date_from, "Dates are wrong") 
     end
   end
 
