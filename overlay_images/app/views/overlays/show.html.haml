@@ -5,7 +5,7 @@
 %p
   %strong= model_class.human_attribute_name(:image) + ':'
   %br
-  = image_tag @overlay.image_url(:thumb).to_s
+  = image_tag @overlay.image_url.to_s
 %p
   %strong= model_class.human_attribute_name(:date_from) + ':'
   %br
