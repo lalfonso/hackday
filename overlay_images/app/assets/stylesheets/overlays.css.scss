@@ -1,0 +1,36 @@
+// Place all the styles related to the Overlays controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.overlay {
+    width:50px;
+    height: 50px;
+    position: absolute;
+    opacity:0.8;
+}
+
+$left: 2px;
+$right: 265px;
+$top: 115px;
+$bottom: 260px; 
+
+//left top
+.lt {
+	top: $top;
+	left: $left;
+}
+//left bottom
+.lb {
+	top: $bottom;
+	left: $left;
+}
+//right top
+.rt {
+	top: $top;
+	left: $right;
+}
+//right bottom
+.rb {
+	top: $bottom;
+	left: $right;
+}
