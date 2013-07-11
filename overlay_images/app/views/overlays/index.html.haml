@@ -2,9 +2,10 @@
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
 %div
-  %image{:class=>"overlay #{@position}", :src=>"http://sweetclipart.com/multisite/sweetclipart/files/santa_hat.png"}
-    %video{:width=>"320", :height=>"240", :controls => "autoplay"}
-      %source{:src=>"http://www.w3schools.com/html/movie.mp4", :type=>"video/mp4"}  
+  - if @actual_overlay 
+    %image{:class=>"overlay #{@actual_overlay.position}", :src=>"#{@actual_overlay.image}"}
+  %video{:width=>"320", :height=>"240", :controls => "autoplay"}
+    %source{:src=>"http://www.w3schools.com/html/movie.mp4", :type=>"video/mp4"}  
 %table.table.table-striped
   %thead
     %tr

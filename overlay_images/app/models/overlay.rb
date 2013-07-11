@@ -7,12 +7,20 @@ class Overlay < ActiveRecord::Base
   validates_presence_of :date_from, :date_to, :position, :image
   validate :check_dates
 
-  POSITIONS = %w(lt lb rt rb)
+  POSITIONS = {'Left Top' => 'lt', 'Left Bottom' => 'lb', 'Right Top' => 'rt', 'Right Bottom' => 'rb'}
 
   def check_dates
     if date_from > date_to || date_from == date_to 
       errors.add(:date_from, t("overlay.wrong_dates")) 
     end
+  end
+
+  def self.current
+    where("? BETWEEN date_from AND date_to", Time.now).first
+  end
+
+  before_save do |r|
+    r.position ||= 'rt'
   end
 
 end

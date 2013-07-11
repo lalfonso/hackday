@@ -3,7 +3,7 @@ class OverlaysController < ApplicationController
   # GET /overlays.json
   def index
     @overlays = Overlay.all
-    @position = 'rt'
+    @actual_overlay = Overlay.current
 
     respond_to do |format|
       format.html # index.html.erb
