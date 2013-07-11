@@ -1,5 +1,5 @@
 = form_for @overlay, :html => { multipart: true, class: 'form-horizontal' } do |f|
-  = render "shared/error_messages", :target => @overlay
+  = render "shared/error_messages", :object => @overlay
   .control-group
     = f.label :image, :class => 'control-label'
     .controls

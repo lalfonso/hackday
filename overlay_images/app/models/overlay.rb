@@ -10,9 +10,11 @@ class Overlay < ActiveRecord::Base
   POSITIONS = {'Left Top' => 'lt', 'Left Bottom' => 'lb', 'Right Top' => 'rt', 'Right Bottom' => 'rb'}
 
   def check_dates
-    if date_from > date_to || date_from == date_to 
-      errors.add(:date_from, "Dates are wrong") 
-    end
+  if !date_to.nil? && !date_from.nil?     
+    errors.add(:date_from, "Dates are wrong") if date_from > date_to 
+  end
+
+
   end
 
   def self.current
