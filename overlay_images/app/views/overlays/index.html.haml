@@ -3,7 +3,7 @@
   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
 .span4
   - if @actual_overlay 
-    %image{:class=>"overlay #{@actual_overlay.position}", :src=>"#{@actual_overlay.image}"}
+    %image{:class=>"overlay #{@actual_overlay.position}", :src=>"#{@actual_overlay.image}", :width=>"20", :height=>"20"}
   %video{:width=>"320", :height=>"240", :controls => "autoplay"}
     %source{:src=>"http://www.w3schools.com/html/movie.mp4", :type=>"video/mp4"}  
 .span7
@@ -14,6 +14,7 @@
         %th= model_class.human_attribute_name(:date_from)
         %th= model_class.human_attribute_name(:date_to)
         %th= model_class.human_attribute_name(:position)
+        %th= model_class.human_attribute_name(:description)
         %th{style: 'text-align: right'}
           =t '.actions', :default => t("helpers.actions")
     %tbody
@@ -24,6 +25,7 @@
           %td= l overlay.date_from.to_date
           %td= l overlay.date_to.to_date
           %td= t overlay.position
+          %td= t overlay.description
           %td{style: 'text-align: right'}
             = link_to t('.show', :default => t("helpers.links.show")), overlay_path(overlay), :class => 'btn btn-mini'
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_overlay_path(overlay), :class => 'btn btn-mini'

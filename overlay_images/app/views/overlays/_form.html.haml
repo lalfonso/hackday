@@ -28,6 +28,10 @@
     = f.label :position, :class => 'control-label'
     .controls
       = f.select :position, Overlay::POSITIONS
+  .control-group
+    = f.label :description, :class => 'control-label'
+    .controls
+      = f.text_field :description      
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), overlays_path, :class => 'btn'
