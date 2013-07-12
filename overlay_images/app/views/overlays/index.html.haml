@@ -7,7 +7,7 @@
   %video{:width=>"320", :height=>"240", :controls => "autoplay"}
     %source{:src=>"http://www.w3schools.com/html/movie.mp4", :type=>"video/mp4"}  
 .span7
-  %table.table.table-hever
+  %table.table.table-hover
     %thead
       %tr
         %th= model_class.human_attribute_name(:image)
@@ -25,7 +25,7 @@
           %td= l overlay.date_from.to_date
           %td= l overlay.date_to.to_date
           %td= t overlay.position
-          %td= t overlay.description
+          %td= t(overlay.description) rescue ''
           %td{style: 'text-align: right'}
             = link_to t('.show', :default => t("helpers.links.show")), overlay_path(overlay), :class => 'btn btn-mini'
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_overlay_path(overlay), :class => 'btn btn-mini'
